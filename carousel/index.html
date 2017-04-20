@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://lencx.github.io/library/carousel/carousel.css">
+<script src="https://lencx.github.io/library/carousel/carousel.js"></script>
+<title>Demo | Carousel</title>
+<style>
+body {
+    margin: 0;
+}
+#a, #b, #c, #d {
+    width: 600px;
+    height: 300px;
+    border: solid 1px #aaa;
+    margin: 30px auto;
+}
+#a div, #c div, #d div {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 300px;
+    font-size: 5rem;
+    font-weight: bold;
+    background: #333;
+    color: yellow;
+}
+#b img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+</style>
+</head>
+<body>
+<div id='a' class='carousel'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+<div id='b' class='carousel'>
+    <img src="./img/1.jpg" alt="">
+    <img src="./img/2.jpg" alt="">
+    <img src="./img/3.jpg" alt="">
+    <img src="./img/4.jpg" alt="">
+    <img src="./img/5.jpg" alt="">
+</div>
+<div id='c' class='carousel'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+<div id='d' class='carousel'>
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+    <div>d</div>
+    <div>e</div>
+</div>
+<script>
+new Carousel({
+    selector: '#a', // container
+    elCollection: '#a div', // get elements collection
+    time: 3000, // ms
+    fadeInStep: 0.02, // 0 - 1 
+    autoPlay: true,
+    navIndex: true,
+    indexStyle: 'disc'
+    // indexStyle: 'number' // disc | number
+})
+new Carousel({
+    selector: '#b',
+    elCollection: '#b img',
+    time: 2000,
+    fadeInStep: 0.02,
+    autoPlay: true,
+    navIndex: true,
+    indexStyle: 'number'
+})
+new Carousel({
+    selector: '#c',
+    elCollection: '#c div',
+    time: 3000,
+    fadeInStep: 0.5,
+    autoPlay: false,
+    navIndex: true,
+    indexStyle: 'number'
+})
+new Carousel({
+    selector: '#d',
+    elCollection: '#d div',
+    time: 2000,
+    fadeInStep: 0.02,
+    autoPlay: true,
+    navIndex: false,
+    indexStyle: 'number'
+})
+</script>
+</body>
+</html>
