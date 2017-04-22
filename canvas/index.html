@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src='https://lencx.github.io/library/api/canvas.api.js'></script>
+<style>
+body {
+    margin: 0;
+    font-family: "Open Sans",arial,sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.container {
+    width: 960px;
+    margin: 50px auto;
+}
+.container .title {
+    font-size: 16px;
+}
+canvas {
+    border: solid 2px rgba(0, 0, 0, .5);
+}
+</style>
+<title>Demo | Canvas</title>
+</head>
+<body>
+<div class="container">
+    <h1>Canvas Demo</h1>
+    <div class='title'>
+       <h2>Shape:</h2> 
+       <ul>
+           <li>drawRect(x, y, width, height, color, isFill)</li>
+           <li>drawArc(x, y, radius, startDeg, endDeg, color, startPoint, anticlockwise, isFill, isOnlyArc)</li>
+           <li>drawSector(x, y, radius, startDeg, endDeg, color, startPoint, anticlockwise, isFill)</li>
+           <li>drawRoundRect(x, y, width, height, radius, color, isFill, tr, br, bl, tl)</li>
+           <li>drawPolygon(centerX, centerY, sideLen, sideNum, color, sideIndent, rotateAngle, isFill)</li>
+       </ul>
+    </div>
+    <canvas id='shape' width='960' height='1100'></canvas>
+    <div class='title'>
+       <h2>Line:</h2> 
+       <ul>
+           <li>drawSolidLine(startX, startY, endX, endY, color, lineWidth, lineCap)</li>
+           <li>drawDashLine(startX, startY, endX, endY, color, setLineDash, lineWidth, lineCap)</li>
+       </ul>
+    </div>
+    <canvas id='line' width='960' height='300'></canvas>
+</div>
+</body>
+<script>
+let $ = new CanvasApp('#shape')
+let $2 = new CanvasApp('#line')
+// rect
+$.drawRect(50, 30, 80, 100, 'rgba(200, 10, 130, .8)')
+$.drawRect(190, 30, 120, 80, 'hsla(120, 60%, 50%, .8)', true)
+$.drawRect(350, 50, 120, 70, 'hsla(220, 60%, 40%, .8)', 10)
+$.drawRect(570, 20, 250, 100, 'hsla(220, 60%, 40%, .8)', true)
+$.drawRect(630, 25, 160, 80, 'clear')
+
+// arc
+$.drawArc(100, 200, 50, 0, 220, 'blue')
+$.drawArc(200, 200, 50, 0, 220, 'green', 'bottom', true, true)
+$.drawArc(370, 200, 50, 0, 220, 'red', 60, false, false, true)
+$.drawArc(550, 200, 50, 20, 350, 'rgba(40, 60, 120, .6)', 'right', false, 10, true)
+$.drawArc(740, 200, 50, 20, 300, 'rgba(140, 90, 20, .6)', 160)
+
+// sector
+$.drawSector(120, 320, 50, 100, 220, '#f0a')
+$.drawSector(210, 320, 50, 30, 260, 'rgba(30, 170, 50, .7)', 'bottom', true, true)
+$.drawSector(360, 320, 50, 60, 290, '#11a', 60, false, false, true)
+$.drawSector(510, 320, 50, 20, 330, 'rgba(140, 160, 120, .6)', 'right', false, 8, true)
+$.drawSector(700, 320, 50, 120, 150, 'rgba(140, 90, 20, .6)', 150)
+
+// round rect
+$.drawRoundRect(60, 410, 120, 60, 10, 'red')
+$.drawRoundRect(230, 410, 150, 60, 20, 'hsl(180, 60%, 50%)', true)
+$.drawRoundRect(420, 410, 100, 60, 10, 'hsl(80, 60%, 50%)', 10)
+$.drawRoundRect(600, 410, 100, 60, 15, 'hsl(280, 60%, 50%)', 10, null, 2, null, 4)
+$.drawRoundRect(760, 410, 100, 60, 25, 'hsl(220, 40%, 50%)', true, null, null, 3, null)
+
+// polygon
+$.drawPolygon(120, 620, 100, 3, 'rgba(150, 30, 70, .8)')
+$.drawPolygon(360, 620, 100, 3, 'rgba(240, 130, 70, .8)', 1, 45, true)
+$.drawPolygon(560, 620, 100, 4, 'rgba(140, 130, 170, .8)', 1, 0, true)
+$.drawPolygon(760, 620, 100, 4, 'rgba(40, 130, 70, .8)', .5, 45, 10)
+$.drawPolygon(120, 790, 100, 4, 'rgba(140, 30, 90, .8)', .78, 45, true)
+$.drawPolygon(370, 790, 100, 5, 'rgba(140, 30, 90, .8)')
+$.drawPolygon(590, 790, 100, 5, 'rgba(140, 130, 90, .8)', .56, 60, 10)
+$.drawPolygon(790, 790, 100, 5, 'rgba(40, 200, 90, .8)', .2, 20, true)
+$.drawPolygon(120, 980, 100, 6, 'rgba(40, 200, 90, .8)', .7, 20, true)
+$.drawPolygon(360, 980, 100, 6, 'rgba(40, 200, 190, .8)', 1, 0, 10)
+$.drawPolygon(680, 980, 100, 7, 'rgba(40, 160, 90, .8)', 1, 0, 20)
+
+// solid line
+$2.drawSolidLine(40, 50, 400, 300)
+$2.drawSolidLine(50, 50, 400, 220, 'rgba(90, 120, 150, .7)', 10)
+$2.drawSolidLine(100, 50, 780, 280, 'rgba(90, 20, 150, .7)', 10, 'round')
+
+// dash line
+$2.drawDashLine(40, 200, 400, 280, 'rgba(90, 20, 60, .7)', [10, 15])
+$2.drawDashLine(10, 220, 900, 100, 'green', [5, 15, 30], 5)
+$2.drawDashLine(120, 250, 840, 20, 'rgba(190, 20, 150, .7)', [5, 20], 8, 'round')
+$2.drawDashLine(20, 120, 790, 120, 'rgba(190, 20, 50, .7)', [12, 15, 30], 8)
+</script>
+</html>
+
