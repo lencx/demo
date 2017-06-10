@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://lencx.github.io/library/pagination/pagination.css">
+<script src="https://lencx.github.io/library/pagination/pagination.min.js"></script>
+<title>Demo | Pagination</title>
+</head>
+<body>
+<div id="pagination"></div>
+<div class="pagination"></div>
+<script>
+new Pagination(document.querySelector('#pagination'), {
+    total: 24,
+    curr: 1,
+    step: 3
+})
+</script>
+</body>
+</html>
