@@ -12,10 +12,13 @@
 <div id="pagination"></div>
 <div class="pagination"></div>
 <script>
-new Pagination(document.querySelector('#pagination'), {
-    total: 24,
+new Pagination({
+    el: '#pagination',
+    total: 25,
     curr: 1,
     step: 3
+}, (e) => {
+    console.log(e)
 })
 </script>
 </body>
